@@ -27,6 +27,7 @@ jobs:
       - name: Extract Tar File
         run: |
           tar -xvf build/example.tar -C build/
+          rm build/example.tar
 
       - name: List Build Folder Contents
         run: ls -la build
