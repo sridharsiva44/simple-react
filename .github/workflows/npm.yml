@@ -29,8 +29,8 @@ jobs:
 
       - name: Publish to Azure Artifacts
         run: |
-          az extension add --name azure-devops
-          az artifacts universal publish --organization https://dev.azure.com/pradeepcp000 --project "Git-hub_action" --feed git_action --name react-build --version 1.0.0 --description "React build artifacts" --path build/ --scope project --extension azure-devops
+          az extension add azure-devops
+          az artifacts universal publish --organization https://dev.azure.com/pradeepcp000 --project "Git-hub_action" --feed git_action --name react-build --version 1.0.0 --description "React build artifacts" --path build/ --scope project
         env:
           AZURE_EXTENSION_DIR: ~/.azure/cliextensions
           AZURE_CORE_MODIFY_BUILD_TIMEOUT: 0
