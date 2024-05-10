@@ -37,4 +37,4 @@ jobs:
 
       - name: Upload Artifacts to Azure
         run: |
-          az artifacts universal publish --organization https://dev.azure.com/pradeepcp000 --project Git-hub_action --feed git_action --name react-build --version 1.0.0 --description "React build artifacts" --path build/
+         az artifacts universal publish --organization https://dev.azure.com/pradeepcp000 --project "Git-hub_action" --feed git_action --name react-build --version 1.0.0 --description "React build artifacts" --path build/ --scope project
