@@ -24,23 +24,18 @@ jobs:
       - name: Build React App
         run: npm run build
 
-      - name: Create Tar Archive
-        run: tar -czvf build.tar.gz build/
+      # - name: Create Tar Archive
+      #   run: tar -czvf build.tar.gz build/
 
-      - name: List Tar Archive Contents
-        run: tar -tzf build.tar.gz
+      # - name: List Tar Archive Contents
+      #   run: tar -tzf build.tar.gz
 
-      - name: Push to Artifactory
-        run: |
-          curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5M -X PUT "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz" -T build.tar.gz
+      # - name: Push to Artifactory
+      #   run: |
+      #     curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5M -X PUT "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz" -T build.tar.gz
 
       - name: Deploy to AWS VM
-        uses: appleboy/ssh-action@master
-        with:
-          script: |
-            AWS_VM_HOST="ec2-18-227-72-242.us-east-2.compute.amazonaws.com"
-            AWS_VM_USERNAME="ec2-user"
-            AWS_VM_PASSWORD= ${{ secrets.VM_PWD }}
-            AWS_VM_PORT="22"
-            scp -r build $AWS_VM_USERNAME@$AWS_VM_HOST:/var/www/html
+        run: |
+          scp -r build ec2-user@18.227.72.242:/var/www/html
+
      
