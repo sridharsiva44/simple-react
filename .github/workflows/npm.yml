@@ -24,7 +24,7 @@ jobs:
       - name: Build React App
         run: npm run build
 
-      - name: Push to Artifactory
-        run: |
-            curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5M -X PUT https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.zip -T build.zip
+      - name: List Build Folder Contents
+        run: ls -la build
 
+     
