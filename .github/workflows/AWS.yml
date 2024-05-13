@@ -22,7 +22,7 @@ jobs:
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
             echo "Logged in successfully"
-            "curl -u rs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy 'https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar' -O"
+            "curl -u rs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy 'https://cpss.jfrog.io/artifactory/check-generic-local/build.zip' -O"
 
           
     
