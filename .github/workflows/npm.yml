@@ -24,9 +24,9 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    - name: Create Tar Archive
-      run: tar -czvf build.tar build/
+    # - name: Create Tar Archive
+    #   run: tar -czvf build.tar build/
 
     - name: Push to Artifactory
       run: |
-          curl -u rs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy -X PUT "https://cpss.jfrog.io/artifactory/github-npm/build.tar" -T build.tar
+          curl -u rs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy -X PUT "https://cpss.jfrog.io/artifactory/github-npm/build" -T build
