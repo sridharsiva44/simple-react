@@ -23,6 +23,5 @@ jobs:
           script: |
             echo "Logged in successfully"
             curl -uharirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5L -O "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz"
-
-      - name: Extract Tarball
-        run: tar -xvzf build.tar.gz
+            ls -al
+    
