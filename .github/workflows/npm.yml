@@ -32,8 +32,6 @@ jobs:
 
       - name: Push to Artifactory
         run: |
-          curl -u harirajan8940@gmail.com:Admin@1234  -T build/* "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/"
-         # curl -u harirajan8940@gmail.com:Admin@1234 -X PUT "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz" -T build.tar.gz
-        #  curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDcxMTkyMTU6Q0Z2ZTJzZHNOakM0NDNBbTExWHBzcHRNS2hZ -T build 'https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz'
-
+          curl -u harirajan8940@gmail.com:Admin@1234  -T build.tar.gz "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz"
+       
 
