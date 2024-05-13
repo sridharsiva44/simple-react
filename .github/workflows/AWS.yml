@@ -23,6 +23,9 @@ jobs:
           script: |
             echo "Logged in successfully"
             curl -urs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy -O "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar"
-            tar -xzvf build.tar
+            ls -al build.tar
+            file build.tar
+            tar -xvf build.tar
+
           
     
