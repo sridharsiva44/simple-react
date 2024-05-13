@@ -35,6 +35,6 @@ jobs:
         ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
         ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
       run: |
-         jfrog rt u --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_USERNAME} --password=${ARTIFACTORY_PASSWORD} --build-name=my-react-app --build-number=${{ github.run_number }} ./build/ my-artifactory-repo/
+         jfrog rt u --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_USERNAME} --password=cmVmdGtuOjAxOjE3NDcxMjI1NDY6SkUySExVQXFibDZlUDRzc3h0WlRCSkFDcHMz --build-name=my-react-app --build-number=${{ github.run_number }} ./build/ my-artifactory-repo/
 
     
