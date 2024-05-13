@@ -25,3 +25,4 @@ jobs:
             echo "Logged in successfully"
             # Additional commands as needed
              curl -uharirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5L -O "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz"
+             tar -xvzf build.tar.gz
