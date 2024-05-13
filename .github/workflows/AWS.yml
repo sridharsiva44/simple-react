@@ -21,8 +21,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
-            # Commands to run on EC2 instance after SSH login
             echo "Logged in successfully"
-            # Additional commands as needed
-             curl -uharirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5L -O "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz"
-             tar -xvzf build.tar.gz
+            curl -uharirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5L -O "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz"
+
+      - name: Extract Tarball
+        run: tar -xvzf build.tar.gz
