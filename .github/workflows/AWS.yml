@@ -24,5 +24,5 @@ jobs:
             echo "Logged in successfully"
             curl -urs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy -O "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar"
             ls -al
-            tar -xzvf build.tar
+          
     
