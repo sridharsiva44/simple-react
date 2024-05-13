@@ -22,8 +22,7 @@ jobs:
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
             echo "Logged in successfully"
-            curl -urs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy -O "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.zip"
-            ls -al 
+            "curl -u rs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy 'https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar' -O"
 
           
     
