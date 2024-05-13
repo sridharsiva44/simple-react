@@ -24,25 +24,6 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    - name: Set up JFrog CLI
-      uses: jfrog/setup-jfrog-cli@v1
-      with:
-        jfrog-version: '1.35.1'
-
     - name: Check JFrog Login
       run: |
-        response=$(curl -u "${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_PASSWORD }}" -i "${{ secrets.ARTIFACTORY_URL }}/api/system/ping" 2>&1)
-        if echo "$response" | grep -q "HTTP/1.1 200 OK"; then
-          echo "JFrog login successful."
-        else
-          echo "JFrog login failed. Response: $response"
-          echo "Retrying after 25 seconds..."
-          sleep 25
-          response=$(curl -u "${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_PASSWORD }}" -i "${{ secrets.ARTIFACTORY_URL }}/api/system/ping" 2>&1)
-          if echo "$response" | grep -q "HTTP/1.1 200 OK"; then
-            echo "JFrog login successful after retry."
-          else
-            echo "JFrog login failed after retry. Response: $response"
-            exit 1
-          fi
-        fi
+       curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDcxMTkyMTU6Q0Z2ZTJzZHNOakM0NDNBbTExWHBzcHRNS2hZ -T build 'https://gitaction12cp.jfrog.io/artifactory/cmVmdGtuOjAxOjE3NDcxMTkyMTU6Q0Z2ZTJzZHNOakM0NDNBbTExWHBzcHRNS2hZ/build'
