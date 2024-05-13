@@ -29,12 +29,12 @@ jobs:
       with:
         jfrog-version: '1.35.1'
 
-    - name: Make API Call
+    - name: Check JFrog Login
       run: |
-        response=$(curl -s -o /dev/null -w "%{http_code}" -u "${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_PASSWORD }}" "${{ secrets.ARTIFACTORY_URL }}/api/system/ping")
-        if [ $response -eq 200 ]; then
+        response=$(curl -u "${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_PASSWORD }}" -i "${{ secrets.ARTIFACTORY_URL }}/api/system/ping" 2>&1)
+        if echo "$response" | grep -q "HTTP/1.1 200 OK"; then
           echo "JFrog login successful."
         else
-          echo "JFrog login failed. Response code: $response"
+          echo "JFrog login failed. Response: $response"
           exit 1
         fi
