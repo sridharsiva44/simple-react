@@ -24,7 +24,8 @@ jobs:
             echo "Logged in successfully"
             curl -L -u rs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy -O "https://cpss.jfrog.io/artifactory/actions/build.tar"
             tar -xzvf build.tar
-            mv build/ /var/www/html
+            sudo mv build/* /var/www/html
+            sudo chmod -R 755 /var/www/html/*
 
 
           
