@@ -25,13 +25,13 @@ jobs:
         run: npm run build
 
       - name: Create Tar Archive
-        run: tar -czvf build.tar build/
+        run: tar -czvf build.tar.gz build/
 
       # - name: List Tar Archive Contents
       #   run: tar -tzf build.tar
 
       - name: Push to Artifactory
         run: |
-           curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDcxMTgzMDU6UUk3THpUZ1VaZkR5b2ltS2xyYjQ1M2dqYWhx -o build.tar "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar"
+          curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDcxMTgzMDU6UUk3THpUZ1VaZkR5b2ltS2xyYjQ1M2dqYWhx -X PUT "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz" -T build.tar.gz
 
 
