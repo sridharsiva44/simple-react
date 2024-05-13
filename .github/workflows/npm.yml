@@ -29,12 +29,12 @@ jobs:
       with:
         jfrog-version: '1.35.1'
 
-    - name: Push to Artifactory
-      env:
-        ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
-        ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-        ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+    - name: Make API Call
       run: |
-         jfrog rt u --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_USERNAME} --password=cmVmdGtuOjAxOjE3NDcxMjI1NDY6SkUySExVQXFibDZlUDRzc3h0WlRCSkFDcHMz --build-name=my-react-app --build-number=${{ github.run_number }} ./build/ my-artifactory-repo/
-
-    
+        response=$(curl -s -o /dev/null -w "%{http_code}" -u "${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_PASSWORD }}" "${{ secrets.ARTIFACTORY_URL }}/api/system/ping")
+        if [ $response -eq 200 ]; then
+          echo "JFrog login successful."
+        else
+          echo "JFrog login failed. Response code: $response"
+          exit 1
+        fi
