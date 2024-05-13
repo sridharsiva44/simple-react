@@ -28,13 +28,13 @@ jobs:
       run: ls -al build
 
 
-    - name: Zip build folder
-      run: zip -r build.zip build/
+    # - name: Zip build folder
+    #   run: zip -r build.zip build/
     
 
-    # - name: Create Tar Archive
-    #   run: tar -czvf build.tar build/
+    - name: Create Tar Archive
+      run: tar -czvf build.tar build
 
     - name: Push to Artifactory
       run: |
-           curl -u rs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy -X PUT "https://cpss.jfrog.io/artifactory/check-generic-local/build.zip" -T build.zip
+           curl -u rs.sridharvenkat@gmail.com:cmVmdGtuOjAxOjE3NDcxMjg4MzI6dnVINk5LVHU3bHJielFiRGVqVHM2ZkFqRGpy -X PUT "https://cpss.jfrog.io/artifactory/check-generic-local/build.tar" -T build.tar
