@@ -1,4 +1,4 @@
-name: Build and Deploy to EC2
+name: Build and Push to Artifactory
 
 on:
   push:
@@ -6,22 +6,32 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # Previous steps...
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Download Artifact from Artifactory
-        run: |
-          curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5L -o build.tar.gz "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz"
-
-      - name: Transfer Artifact to EC2
-        uses: appleboy/ssh-action@master
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          host: ${{ secrets.VM_HOST }}
-          username: ${{ secrets.VM_USR }}
-          password: ${{ secrets.VM_PWD }}
-          port: ${{ secrets.VM_PORT }} # Optional, default is 22
-          script: |
-            scp build.tar.gz ${{ secrets.AWS_VM_USERNAME }}@${{ secrets.AWS_VM_HOST }}:/var/www/html
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Create Tar Archive
+        run: tar -czvf build.tar build/
+
+      - name: List Tar Archive Contents
+        run: tar -tzf build.tar
+
+      - name: Push to Artifactory
+        run: |
+           curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5M -X PUT "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar" -T build.tar
+
+
