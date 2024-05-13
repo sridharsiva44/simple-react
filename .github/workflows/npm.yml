@@ -24,13 +24,17 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    - name: Push to Artifactory
+    - name: Set up JFrog CLI
       uses: jfrog/setup-jfrog-cli@v1
       with:
         jfrog-version: '1.35.1'
+
+    - name: Push to Artifactory
       env:
         ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
         ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
         ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
       run: |
-        jfrog rt u --build-name=my-react-app --build-number=${{ github.run_number }} ./build/ my-artifactory-repo/
+        jfrog rt u --build-name=my-react-app --build-number=${{ github.run_number }} ./build/ https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/
+
+    
