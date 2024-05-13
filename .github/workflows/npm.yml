@@ -24,6 +24,6 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    - name: Check JFrog Login
+    - name: Push to Artifactory
       run: |
-       curl -u harirajan8940@gmail.com:Admin@1234 -T build 'https://gitaction12cp.jfrog.io/artifactory/cmVmdGtuOjAxOjE3NDcxMTkyMTU6Q0Z2ZTJzZHNOakM0NDNBbTExWHBzcHRNS2hZ/build'
+          curl -u harirajan8940@gmail.com:cmVmdGtuOjAxOjE3NDY4NzQ3NzA6Tm11eERHV1lGdUJKMVFQRnJHclZOZ1c1SU5M -X PUT "https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/build.tar.gz" -T build.tar.gz
