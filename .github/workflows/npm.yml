@@ -35,6 +35,6 @@ jobs:
         ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
         ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
       run: |
-        jfrog rt u --build-name=my-react-app --build-number=${{ github.run_number }} ./build/ https://gitaction12cp.jfrog.io/artifactory/git_action-npm-local/
+        jfrog rt u --build-name=my-react-app --build-number=${{ github.run_number }} ./build/ my-artifactory-repo/
 
     
