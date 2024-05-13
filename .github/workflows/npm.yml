@@ -27,8 +27,8 @@ jobs:
       - name: Create Tar Archive
         run: tar -czvf build.tar build/
 
-      - name: List Tar Archive Contents
-        run: tar -tzf build.tar
+      # - name: List Tar Archive Contents
+      #   run: tar -tzf build.tar
 
       - name: Push to Artifactory
         run: |
