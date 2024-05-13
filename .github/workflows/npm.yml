@@ -28,7 +28,7 @@ jobs:
       run: ls -al build
 
     - name: Run your shell command
-      run: tar -xvf build.tar build/ . 
+      run: tar -xvf build.tar build/ 
 
     # - name: Zip build folder
     #   run: zip -r build1.zip build/ .
